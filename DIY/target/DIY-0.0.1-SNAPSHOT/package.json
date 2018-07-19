@@ -1,0 +1,19 @@
+{
+  "name": "vgst",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "sumitjangir",
+  "license": "ISC",
+  "devDependencies": {
+    "angular-moment": "^1.0.0-beta.6",
+    "angular-sanitize": "^1.5.7",
+    "angular-ui-bootstrap": "^1.3.3",
+    "async": "^2.0.0-rc.6",
+    "moment": "^2.13.0",
+    "ui-select": "^0.18.0"
+  }
+}

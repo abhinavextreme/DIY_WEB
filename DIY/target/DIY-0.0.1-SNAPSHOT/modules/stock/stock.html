@@ -1,0 +1,113 @@
+<div class="col-md-12">
+    <div class="col-md-6">
+        <div class="form-group has-feedback">
+            <input type="text" name="customFilter" class="form-control"
+                   ng-model="stock.customFilter.$"
+                   placeholder="Search Inventory" id="customFilter" style="border-radius: 15px">
+            <span class="glyphicon glyphicon-search form-control-feedback"></span>
+        </div>
+    </div>
+</div>
+</br>
+<div class="modal-body">
+    <vform name="addItemsForm" config="addItems.formConfig">
+        <div class="row scrollFields">
+            <div class="col-md-12">
+                <div class="col-md-12">
+                    <div class="table-responsive" style="height: 350px; overflow: auto">
+                        <table class="table table-condensed table-hover table-bordered table-striped">
+                            <colgroup>
+                                <col width="1%">
+                                <col width="10%">
+                                <col width="15%">
+                                <col width="12%">
+                                <col width="10%">
+                                <col width="12%">
+                            </colgroup>
+                            <thead>
+
+                            <th>SNo.</th>
+                            <th>Category</th>
+                            <th>Item Name</th>
+                            <th>Current Quantity</th>
+                            <th>Purchase Quantity</th>
+                            <th>Total Quantity</th>
+
+                            </thead>
+                            <tbody>
+                            <tr ng-repeat="item in stock.inventoryData | filter:stock.customFilter | startFrom:(stock.paginationCurrentPage-1)*stock.paginationMaxSize | limitTo:stock.paginationMaxSize">
+                                <td>{{$index+1}}</td>
+                                <td>
+                                    <vselect vtype="text" name="eoCategory{{$index}}"
+                                             required=""
+                                             ng-disabled="true"
+                                             class="form-control"
+                                             form-config="stock.formConfig"
+                                             ng-model="item.eoCategory"
+                                             id="eoCategory{{$index}}">
+                                        <option value="">Select Category</option>
+                                        <option ng-repeat="cat in stock.categoryArrayData"
+                                                value="{{cat.primaryKey}}">{{cat.categoryName}}
+                                        </option>
+                                    </vselect>
+                                </td>
+                                <td>
+                                    <vinput vtype="text" name="itemName{{$index}}"
+                                            required=""
+                                            ng-disabled="true"
+                                            class="form-control"
+                                            form-config="category.formConfig"
+                                            ng-model="item.itemName"
+                                            id="itemName{{$index}}" placeholder="Enter Name">
+                                    </vinput>
+                                </td>
+                                <td>
+                                    <vinput vtype="text" name="currentQuantity{{$index}}"
+                                            required=""
+                                            readonly="true"
+                                            class="form-control"
+                                            form-config="stock.formConfig"
+                                            ng-model="item.currentQuantity"
+                                            id="currentQuantity{{$index}}" placeholder="Enter Quantity">
+                                    </vinput>
+                                </td>
+                                <td>
+                                    <vinput vtype="text" name="purchaseQuantity{{$index}}"
+                                            required=""
+                                            class="form-control"
+                                            form-config="stock.formConfig"
+                                            ng-change="stock.calculateTotalQuan($index,item)"
+                                            ng-model="item.purchaseQuantity"
+                                            id="purchaseQuantity{{$index}}" placeholder="Enter Quantity">
+                                    </vinput>
+                                </td>
+                                <td>
+                                    <vinput vtype="text" name="totalQuantity{{$index}}"
+                                            required=""
+                                            readonly="true"
+                                            class="form-control"
+                                            form-config="stock.formConfig"
+                                            ng-model="item.totalQuantity"
+                                            id="totalQuantity{{$index}}" placeholder="Enter Quantity">
+                                    </vinput>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </br>
+        <div class="row">
+            <div class="col-md-6">
+                <button class="btn btn-success btn-sm pull-right"
+                        type="button"
+                        style="margin-right: 2%"
+                        ng-click="stock.submitInventory()">Submit
+                </button>
+            </div>
+        </div>
+    </vform>
+</div>
+

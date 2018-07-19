@@ -1,0 +1,52 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <form name="viewStudentAttendanceForm" class="form-inline">
+                <div class="form-group">
+                    <label for="createdDate" class="col-md-4">Select Date<span
+                            style="color: #FF0000">*</span></label>
+
+                    <div class="col-md-8">
+                        <p class="input-group">
+                            <input type="text" class="form-control" required="" name="createdDate" id="createdDate"
+                                   uib-datepicker-popup="{{gstReport.format}}" show-button-bar="false"
+                                   readonly="true" ng-model="gstReport.formModel.createdDate"
+                                   is-open="gstReport.popup.opened" placeholder="YYYY-MM-DD"
+                                   datepicker-options="gstReport.dateOptions" ng-required="true"
+                                   ng-click="gstReport.open()"/>
+                        <span class="input-group-btn">
+		            <button type="button" class="btn btn-default" ng-click="gstReport.open()"><i
+                            class="glyphicon glyphicon-calendar"></i></button>
+		          </span>
+                        </p>
+                    </div>
+                </div>
+                <button ng-disabled="(gstReport.formModel.createdDate)==null"
+                        ng-click="gstReport.getGstReportData()"
+                        class="btn btn-primary">Submit
+                </button>
+            </form>
+        </div>
+    </div>
+    </br>
+    <div class="row">
+        <div class="col-md-9 col-md-offset-1">
+            <div class="table-responsive" ng-if="gstReport.checkEmptyMap.length > 0">
+                <table class="table table-bordered table-striped table-condensed table-hover table">
+                    <thead>
+                    <th>Sr.No.</th>
+                    <th>Items Total Cost</th>
+                    <th>Total Gst On All Items</th>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>{{gstReport.respData.totalItemsCost}}</td>
+                        <td>{{gstReport.respData.totalGstOnAllItems}}</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,94 @@
+{
+  "admin": [
+    {
+      "key": "0",
+      "icon": "fa fa-home",
+      "title": "Home",
+      "isActive": false,
+      "url": "#/dashboard",
+      "subMenu": []
+    },
+    {
+      "key": "1",
+      "icon": "fa fa-shopping-cart",
+      "title": "Shop",
+      "isActive": false,
+      "url": "#/shop",
+      "subMenu": []
+    },
+    {
+      "key": "2",
+      "icon": "fa fa-bars",
+      "title": "Admin Tasks",
+      "isActive": false,
+      "url": "#/admintasks",
+      "subMenu": [
+        {
+          "key": "0",
+          "icon": "",
+          "title": "Category",
+          "isActive": false,
+          "url": "#/admintasks/category",
+          "subMenu": []
+        },
+        {
+          "key": "1",
+          "icon": "",
+          "title": "GST",
+          "isActive": false,
+          "url": "#/admintasks/gst",
+          "subMenu": []
+        },
+        {
+          "key": "2",
+          "icon": "",
+          "title": "Items",
+          "isActive": false,
+          "url": "#/admintasks/items",
+          "subMenu": []
+        },
+        {
+          "key": "3",
+          "icon": "",
+          "title": "Update License",
+          "isActive": false,
+          "url": "#/admintasks/updatelicense",
+          "subMenu": []
+        }
+      ]
+    },
+    {
+      "key": "3",
+      "icon": "fa fa-bar-chart",
+      "title": "Stock",
+      "isActive": false,
+      "url": "#/stock",
+      "subMenu": []
+    },
+    {
+      "key": "4",
+      "icon": "fa fa-exchange",
+      "title": "Sell",
+      "isActive": false,
+      "url": "#/sell",
+      "subMenu": []
+    },
+    {
+      "key": "5",
+      "icon": "fa fa-pie-chart",
+      "title": "Report",
+      "isActive": false,
+      "url": "#/report",
+      "subMenu": [
+        {
+          "key": "0",
+          "icon": "",
+          "title": "GST Report",
+          "isActive": false,
+          "url": "#/report/gstReport",
+          "subMenu": []
+        }
+      ]
+    }
+  ]
+}

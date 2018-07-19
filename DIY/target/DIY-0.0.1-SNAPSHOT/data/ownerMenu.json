@@ -1,0 +1,12 @@
+{
+  "owner": [
+    {
+      "key": "0",
+      "icon": "fa fa-home",
+      "title": "Home",
+      "isActive": false,
+      "url": "#/home",
+      "subMenu": []
+    }
+  ]
+}

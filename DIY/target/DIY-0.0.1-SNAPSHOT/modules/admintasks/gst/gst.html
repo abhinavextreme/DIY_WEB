@@ -1,0 +1,66 @@
+<div class="modal-body">
+    <vform name="gstForm" config="gst.formConfig">
+        <div class="row scrollFields">
+            <div class="col-md-12">
+                <div class="col-md-3">
+                    <div class="form-group has-feedback">
+                        <input type="text" name="customFilter" class="form-control"
+                               ng-model="gst.customFilter.$"
+                               placeholder="Search gst" id="customFilter" style="border-radius: 15px">
+                        <span class="glyphicon glyphicon-search form-control-feedback"></span>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <a class="btn btn-sm btn-default pull-right"
+                       href="javascript:void(0);"
+                       ng-click="gst.addAnotherSlab()">Add Another GST
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="col-md-6">
+                    <div class="table-responsive" style="height: 350px; overflow: auto;">
+                        <table class="table table-condensed table-hover table-bordered table-striped">
+                            <thead>
+                            <th>SNo.</th>
+                            <th>Type</th>
+                            </thead>
+                            <tbody>
+                            <tr ng-repeat="data in gst.formModel.gstArray | orderBy : '-primaryKey' | filter:gst.customFilter | startFrom:(gst.paginationCurrentPage-1)*gst.paginationMaxSize | limitTo:gst.paginationMaxSize">
+                                <td>{{$index+1}}</td>
+                                <td>
+                                    <vinput vtype="text" name="gstType{{$index}}"
+                                            required=""
+                                            class="form-control"
+                                            form-config="gst.formConfig"
+                                            ng-model="data.gstType"
+                                            id="gstType{{$index}}" placeholder="Enter Value">
+                                    </vinput>
+                                </td>
+                                <!--<td>
+                                    <a type="button" class="form-control"
+                                       ng-click="userRegistration.removegst(data.$$hashKey);"
+                                       id="delete{{$index}}">
+                                        <i class="fa fa-trash text-danger"></i>
+                                    </a>
+                                </td>-->
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </br>
+        <div class="row">
+            <div class="col-md-6">
+                <button class="btn btn-success btn-sm pull-right"
+                        type="button"
+                        style="margin-right: 2%"
+                        ng-click="gst.formConfig.submit($event, gstForm)">Submit
+                </button>
+            </div>
+        </div>
+    </vform>
+</div>
+

@@ -1,0 +1,114 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <label for="sellItem" class="col-md-2">Select Product</label>
+            <select class="select2 col-md-6" name="sellItem" id="sellItem"
+                    ng-model="sell.sellItem" ng-change="sell.addTableRows(sell.sellItem)">
+                <option ng-repeat="d in sell.itemListDataArray"
+                        value="{{d}}">{{d.eoCategory}} -{{d.itemName}} {{d.unitVolume}}{{d.lkUnit}}
+                </option>
+            </select>
+        </div>
+    </div>
+    </br>
+    <div class="col-md-12" ng-if="sell.itemListRepeat.length > 0">
+        <label class="col-md-2"></label>
+
+        <div class="col-md-8" style="margin-left: -2%;">
+            <div class="table-responsive" style="height: 300px; overflow: auto">
+                <table class="table table-condensed table-hover table-bordered table-striped">
+                    <colgroup>
+                        <col width="1%">
+                        <col width="15%">
+                        <col width="7%">
+                        <col width="5%">
+                        <col width="10%">
+                        <col width="5%">
+                    </colgroup>
+                    <thead>
+                    <th>SNo.</th>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Cost</th>
+                    <th>Action</th>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="data in sell.itemListRepeat">
+                        <td>{{$index+1}}</td>
+                        <td>{{data.itemName}} - {{data.unitVolume}}{{data.lkUnit}}</td>
+                        <td>{{data.rateOfSelling}}</td>
+                        <td>
+                            <vinput vtype="text" name="quantity{{$index}}"
+                                    required=""
+                                    class="form-control"
+                                    form-config="sell.formConfig"
+                                    ng-change="sell.calculateAmount(data)"
+                                    ng-model="data.quantity"
+                                    id="quantity{{$index}}" placeholder="Enter Quantity">
+                            </vinput>
+                        </td>
+                        <td>
+                            <vinput vtype="text" name="cost{{$index}}"
+                                    required=""
+                                    readonly="true"
+                                    class="form-control"
+                                    form-config="sell.formConfig"
+                                    ng-model="data.cost"
+                                    id="cost{{$index}}" placeholder="Amount">
+                            </vinput>
+                        </td>
+                        <td>
+                            <span class="cursor-pointer"
+                                  ng-click="sell.removeRows(data.$$hashKey);sell.calculateAmount(data)">
+                                <i class="fa fa-remove col-md-1" style="color: red;font-size:25px"
+                                   title="Remove"></i></span>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    </br>
+    <div class="row" ng-if="sell.itemListRepeat.length > 0">
+        <div class="col-md-11 col-md-offset-6">
+            <label class="col-md-2">Total Amount</label>
+
+            <div class="col-md-2" style="margin-left: -2%;">
+                <vinput vtype="text" name="costAmount"
+                        readonly="true"
+                        class="form-control"
+                        form-config="sell.formConfig"
+                        ng-model="sell.costAmount"
+                        id="costAmount" placeholder="Amount">
+                </vinput>
+            </div>
+        </div>
+    </div>
+    </br>
+    <div class="row" ng-if="sell.itemListRepeat.length > 0">
+        <div class="col-md-11 col-md-offset-6">
+            <label class="col-md-2">Amount Received</label>
+
+            <div class="col-md-2" style="margin-left: -2%;">
+                <vinput vtype="text" name="amountReceived"
+                        class="form-control"
+                        form-config="sell.formConfig"
+                        ng-model="sell.amountReceived"
+                        id="amountReceived" placeholder="Amount">
+                </vinput>
+            </div>
+        </div>
+    </div>
+    </br>
+    <div class="row" ng-if="sell.itemListRepeat.length > 0">
+        <div class="col-md-6">
+            <button type="button" class="btn btn-sm btn-primary pull-right"
+                    ng-click="sell.genPDF()">Generate Slip
+            </button>
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,9 @@
+/**
+ * Created by SumeetHashia on 6/5/16.
+ */
+
+(function (window, document, $, angular) {
+
+    angular.bootstrap(document, ['diy']);
+
+})(window, window.document, window.jQuery, window.angular);

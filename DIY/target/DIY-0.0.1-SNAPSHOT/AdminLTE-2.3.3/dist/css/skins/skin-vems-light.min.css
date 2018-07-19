@@ -1,0 +1,173 @@
+.skin-vems-light .main-header .navbar {
+    background-color: #e46d09
+}
+
+.skin-vems-light .main-header .navbar .nav > li > a {
+    color: #fff
+}
+
+.skin-vems-light .main-header .navbar .nav > li > a:hover, .skin-vems-light .main-header .navbar .nav > li > a:active, .skin-vems-light .main-header .navbar .nav > li > a:focus, .skin-vems-light .main-header .navbar .nav .open > a, .skin-vems-light .main-header .navbar .nav .open > a:hover, .skin-vems-light .main-header .navbar .nav .open > a:focus, .skin-vems-light .main-header .navbar .nav > .active > a {
+    background: rgba(0, 0, 0, 0.1);
+    color: #f6f6f6
+}
+
+.skin-vems-light .main-header .navbar .sidebar-toggle {
+    color: #fff
+}
+
+.skin-vems-light .main-header .navbar .sidebar-toggle:hover {
+    color: #f6f6f6;
+    background: rgba(0, 0, 0, 0.1)
+}
+
+.skin-vems-light .main-header .navbar .sidebar-toggle {
+    color: #fff
+}
+
+.skin-vems-light .main-header .navbar .sidebar-toggle:hover {
+    background-color: #ce6208
+}
+
+@media (max-width: 767px) {
+    .skin-vems-light .main-header .navbar .dropdown-menu li.divider {
+        background-color: rgba(255, 255, 255, 0.1)
+    }
+
+    .skin-vems-light .main-header .navbar .dropdown-menu li a {
+        color: #fff
+    }
+
+    .skin-vems-light .main-header .navbar .dropdown-menu li a:hover {
+        background: #ce6208
+    }
+}
+
+.skin-vems-light .main-header .logo {
+    background-color: #e46d09;
+    color: #fff;
+    border-bottom: 0 solid transparent
+}
+
+.skin-vems-light .main-header .logo:hover {
+    background-color: #ce6208
+}
+
+.skin-vems-light .main-header li.user-header {
+    background-color: #e46d09
+}
+
+.skin-vems-light .content-header {
+    background: transparent
+}
+
+.skin-vems-light .wrapper, .skin-vems-light .main-sidebar, .skin-vems-light .left-side {
+    background-color: #f9fafc
+}
+
+.skin-vems-light .content-wrapper, .skin-vems-light .main-footer {
+    border-left: 1px solid #d2d6de
+}
+
+.skin-vems-light .user-panel > .info, .skin-vems-light .user-panel > .info > a {
+    color: #444
+}
+
+.skin-vems-light .sidebar-menu > li {
+    -webkit-transition: border-left-color .3s ease;
+    -o-transition: border-left-color .3s ease;
+    transition: border-left-color .3s ease
+}
+
+.skin-vems-light .sidebar-menu > li.header {
+    color: #848484;
+    background: #f9fafc
+}
+
+.skin-vems-light .sidebar-menu > li > a {
+    border-left: 3px solid transparent;
+    font-weight: 600
+}
+
+.skin-vems-light .sidebar-menu > li:hover > a, .skin-vems-light .sidebar-menu > li.active > a {
+    color: #000;
+    background: #f4f4f5
+}
+
+.skin-vems-light .sidebar-menu > li.active {
+    border-left-color: #e46d09
+}
+
+.skin-vems-light .sidebar-menu > li.active > a {
+    font-weight: 600
+}
+
+.skin-vems-light .sidebar-menu > li > .treeview-menu {
+    background: #f4f4f5
+}
+
+.skin-vems-light .sidebar a {
+    color: #444
+}
+
+.skin-vems-light .sidebar a:hover {
+    text-decoration: none
+}
+
+.skin-vems-light .treeview-menu > li > a {
+    color: #777
+}
+
+.skin-vems-light .treeview-menu > li.active > a, .skin-vems-light .treeview-menu > li > a:hover {
+    color: #000
+}
+
+.skin-vems-light .treeview-menu > li.active > a {
+    font-weight: 600
+}
+
+.skin-vems-light .sidebar-form {
+    border-radius: 3px;
+    border: 1px solid #d2d6de;
+    margin: 10px 10px
+}
+
+.skin-vems-light .sidebar-form input[type="text"], .skin-vems-light .sidebar-form .btn {
+    box-shadow: none;
+    background-color: #fff;
+    border: 1px solid transparent;
+    height: 35px;
+    -webkit-transition: all .3s ease-in-out;
+    -o-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out
+}
+
+.skin-vems-light .sidebar-form input[type="text"] {
+    color: #666;
+    border-top-left-radius: 2px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 2px
+}
+
+.skin-vems-light .sidebar-form input[type="text"]:focus, .skin-vems-light .sidebar-form input[type="text"]:focus + .input-group-btn .btn {
+    background-color: #fff;
+    color: #666
+}
+
+.skin-vems-light .sidebar-form input[type="text"]:focus + .input-group-btn .btn {
+    border-left-color: #fff
+}
+
+.skin-vems-light .sidebar-form .btn {
+    color: #999;
+    border-top-left-radius: 0;
+    border-top-right-radius: 2px;
+    border-bottom-right-radius: 2px;
+    border-bottom-left-radius: 0
+}
+
+@media (min-width: 768px) {
+    .skin-vems-light.sidebar-mini.sidebar-collapse .sidebar-menu > li > .treeview-menu {
+        border-left: 1px solid #d2d6de
+    }
+}

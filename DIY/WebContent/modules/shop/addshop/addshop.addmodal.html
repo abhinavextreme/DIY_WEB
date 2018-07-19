@@ -1,0 +1,185 @@
+<div class="modal-header">
+    <button type="button" class="close"
+            ng-click="addModalShop.modalInstance.close({},'cancel')"
+            title="close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+    <h3 class="modal-title">Add Shop</h3>
+</div>
+<div class="modal-body">
+    <div class="col-md-3 padding-lr-no">
+        <div class="box box-solid">
+            <div class="box-body no-padding">
+                <ul class="nav nav-pills nav-stacked" stab-index-drct=""
+                    config="addModalShop.tabConfig">
+                    <li><a href="javascript:void(0);"><i class="fa fa-inbox"></i>Basic Information</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="row scrollFields" id="mainDiv">
+        <vform name="ShopRegistrationForm"
+               config="addModalShop.formConfig" class="form-horizontal text-muted">
+            <div class="col-md-12" id="tabContainer" stab-content-drct="">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="shopName" class="col-md-4">Shop Name<span
+                                    style="color: #FF0000">*</span>
+                            </label>
+
+                            <div class="col-md-8">
+                                <vinput vtype="alphanumericspace" validate-pattern="" name="shopName"
+                                        form-config="addModalShop.formConfig" required=""
+                                        class="form-control"
+                                        ng-model="addModalShop.formModel.shopName" id="shopName"
+                                        placeholder=" Shop Name"></vinput>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone" class="col-md-4">Phone No.<span
+                                    style="color: #FF0000">*</span>
+                            </label>
+
+                            <div class="col-md-8">
+                                <vinput vtype="positiveirrational" only-numbers="" name="phone"
+                                        validate-pattern=""
+                                        max-limit="10"
+                                        form-config="addModalShop.formConfig" required=""
+                                        class="form-control"
+                                        ng-model="addModalShop.formModel.phone" id="phone"
+                                        placeholder=" Phone"></vinput>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="email" class="col-md-4">Email<span
+                                    style="color: #FF0000"></span>
+                            </label>
+
+                            <div class="col-md-8">
+                                <vinput type="email" name="email" validate-pattern=""
+                                        charminlength="7" charmaxlength="256"
+                                        form-config="addModalShop.formConfig"
+                                        class="form-control"
+                                        ng-model="addModalShop.formModel.email" id="email"
+                                        placeholder=" E-Mail"></vinput>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="addressLine1" class="col-md-4">Address Line 1<span
+                                    style="color: #FF0000">*</span>
+                            </label>
+
+                            <div class="col-md-8">
+                                <vinput type="text" name="addressLine1"
+                                        form-config="addModalShop.formConfig" required=""
+                                        class="form-control"
+                                        ng-model="addModalShop.formModel.addressLine1" id="addressLine1"
+                                        placeholder="Address 1"></vinput>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="addressLine2" class="col-md-4">Address Line 2<span
+                                    style="color: #FF0000"></span>
+                            </label>
+
+                            <div class="col-md-8">
+                                <vinput type="text" name="addressLine2"
+                                        form-config="addModalShop.formConfig"
+                                        class="form-control"
+                                        ng-model="addModalShop.formModel.addressLine2" id="addressLine2"
+                                        placeholder=" Address 2"></vinput>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="country" class="col-md-4">Country<span
+                                    style="color: #FF0000">*</span>
+                            </label>
+
+                            <div class="col-md-8">
+                                <vinput type="text" name="country"
+                                        form-config="addModalShop.formConfig" required=""
+                                        class="form-control"
+                                        ng-model="addModalShop.formModel.country" id="country"
+                                        placeholder=" Country"></vinput>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="state" class="col-md-4">State<span
+                                    style="color: #FF0000">*</span>
+                            </label>
+
+                            <div class="col-md-8">
+                                <vinput type="text" name="state"
+                                        form-config="addModalShop.formConfig" required=""
+                                        class="form-control"
+                                        ng-model="addModalShop.formModel.state" id="state"
+                                        placeholder=" State"></vinput>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="city" class="col-md-4">City<span
+                                    style="color: #FF0000">*</span>
+                            </label>
+
+                            <div class="col-md-8">
+                                <vinput type="text" name="city"
+                                        form-config="addModalShop.formConfig" required=""
+                                        class="form-control"
+                                        ng-model="addModalShop.formModel.city" id="city"
+                                        placeholder=" City"></vinput>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="pinCode" class="col-md-4">Pin-Code<span
+                                    style="color: #FF0000">*</span>
+                            </label>
+
+                            <div class="col-md-8">
+                                <vinput vtype="positiveirrational" name="pinCode" only-numbers=""
+                                        validate-pattern=""
+                                        form-config="addModalShop.formConfig" required=""
+                                        max-limit="6"
+                                        class="form-control"
+                                        ng-model="addModalShop.formModel.pinCode" id="pinCode"
+                                        placeholder=" Pin-Code"></vinput>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="landMark" class="col-md-4">Land Mark<span
+                                    style="color: #FF0000">*</span>
+                            </label>
+
+                            <div class="col-md-8">
+                                <vinput type="text" name="landMark"
+                                        form-config="addModalShop.formConfig" required=""
+                                        class="form-control"
+                                        ng-model="addModalShop.formModel.landMark" id="landMark"
+                                        placeholder=" Land Mark"></vinput>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="gstInNumber" class="col-md-4">GSTIN<span
+                                    style="color: #FF0000">*</span>
+                            </label>
+
+                            <div class="col-md-8">
+                                <vinput type="text" name="landMark"
+                                        form-config="addModalShop.formConfig" required=""
+                                        class="form-control"
+                                        ng-model="addModalShop.formModel.gstInNumber" id="gstInNumber"
+                                        placeholder=" GSTIN"></vinput>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </vform>
+    </div>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-success btn-sm"
+            type="button" ng-click="addModalShop.formSubmit($event)">Submit
+    </button>
+</div>

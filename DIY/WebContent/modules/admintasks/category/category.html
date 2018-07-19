@@ -1,0 +1,69 @@
+<div class="modal-body">
+    <vform name="categoryForm" config="category.formConfig">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="col-md-3">
+                    <div class="form-group has-feedback">
+                        <input type="text" name="customFilter" class="form-control"
+                               ng-model="category.customFilter.$"
+                               placeholder="Search Category" id="customFilter" style="border-radius: 15px">
+                        <span class="glyphicon glyphicon-search form-control-feedback"></span>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <a class="btn btn-sm btn-default pull-right"
+                       href="javascript:void(0);"
+                       ng-click="category.addAnotherCategory()">Add Another Category
+                    </a>
+                </div>
+            </div>
+            <div class="row scrollFields">
+                <div class="col-md-12">
+                    <div class="col-md-6">
+                        <div class="table-responsive" style="height: 350px; overflow: auto;">
+                            <table class="table table-condensed table-hover table-bordered table-striped">
+                                <thead>
+                                <th>SNo.</th>
+                                <th>Name</th>
+                                </thead>
+                                <tbody>
+                                <tr ng-repeat="data in category.formModel.categoryArray | orderBy : '-primaryKey' | filter:category.customFilter | startFrom:(category.paginationCurrentPage-1)*category.paginationMaxSize | limitTo:category.paginationMaxSize">
+                                    <td>{{$index+1}}</td>
+                                    <td>
+                                        <vinput vtype="text" name="categoryName{{$index}}"
+                                                required=""
+                                                class="form-control"
+                                                form-config="category.formConfig"
+                                                ng-model="data.categoryName"
+                                                id="categoryName{{$index}}" placeholder="Enter Name">
+                                        </vinput>
+                                    </td>
+                                    <!--<td>
+                                        <a type="button" class="form-control"
+                                           ng-click="userRegistration.removeCategory(data.$$hashKey);"
+                                           id="delete{{$index}}">
+                                            <i class="fa fa-trash text-danger"></i>
+                                        </a>
+                                    </td>-->
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        </br>
+        <div class="row">
+            <div class="col-md-6">
+                <button class="btn btn-success btn-sm pull-right"
+                        type="button"
+                        style="margin-right: 2%"
+                        ng-click="category.formConfig.submit($event, categoryForm)">Submit
+                </button>
+            </div>
+        </div>
+    </vform>
+</div>
+

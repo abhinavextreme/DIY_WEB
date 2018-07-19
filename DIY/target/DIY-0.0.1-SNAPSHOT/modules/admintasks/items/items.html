@@ -1,0 +1,165 @@
+<div class="modal-body">
+    <vform name="addItemsForm" config="addItems.formConfig">
+        <div class="row scrollFields">
+            <div class="col-md-12">
+                <div class="col-md-6">
+                    <div class="form-group has-feedback">
+                        <input type="text" name="customFilter" class="form-control"
+                               ng-model="addItems.customFilter.$"
+                               placeholder="Search Items" id="customFilter" style="border-radius: 15px">
+                        <span class="glyphicon glyphicon-search form-control-feedback"></span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <a class="btn btn-sm btn-default pull-right"
+                       href="javascript:void(0);"
+                       ng-click="addItems.addAnotherItem()">Add More Item
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="col-md-12">
+                    <div class="table-responsive" style="height: 350px; overflow: auto;">
+                        <table class="table table-condensed table-hover table-bordered table-striped">
+                            <colgroup>
+                                <col width="1%">
+                                <col width="10%">
+                                <col width="15%">
+                                <col width="12%">
+                                <col width="10%">
+                                <col width="12%">
+                                <col width="10%">
+                                <col width="10%">
+                                <col width="10%">
+                            </colgroup>
+                            <thead>
+                            <tr>
+                                <th rowspan="2">SNo.</th>
+                                <th rowspan="2">Category</th>
+                                <th rowspan="2">Item Name</th>
+                                <th rowspan="2">Unit</th>
+                                <th rowspan="2">Quantity</th>
+                                <th colspan="3" class="text-center">Rate</th>
+                                <th rowspan="2">GST Slab</th>
+                            </tr>
+                            <tr>
+                                <th class="text-center">Rate Of Purchase</th>
+                                <th class="text-center">MRP</th>
+                                <th class="text-center">Rate Of Selling</th>
+
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr ng-repeat="item in addItems.formModel.itemsArrayList | orderBy : '-primaryKey' | filter:addItems.customFilter | startFrom:(addItems.paginationCurrentPage-1)*addItems.paginationMaxSize | limitTo:addItems.paginationMaxSize">
+                                <td>{{$index+1}}</td>
+                                <td>
+                                    <vselect vtype="text" name="eoCategory{{$index}}"
+                                             required=""
+                                             class="form-control"
+                                             form-config="addItems.formConfig"
+                                             ng-model="item.eoCategory"
+                                             id="eoCategory{{$index}}">
+                                        <option value="">Select Category</option>
+                                        <option ng-repeat="cat in addItems.categoryArrayData"
+                                                value="{{cat.primaryKey}}">{{cat.categoryName}}
+                                        </option>
+                                    </vselect>
+                                </td>
+                                <td>
+                                    <vinput vtype="text" name="itemName{{$index}}"
+                                            required=""
+                                            class="form-control"
+                                            form-config="addItems.formConfig"
+                                            ng-model="item.itemName"
+                                            id="itemName{{$index}}" placeholder="Enter Name">
+                                    </vinput>
+                                </td>
+                                <td>
+                                    <vselect vtype="text" name="lkUnit{{$index}}"
+                                             required=""
+                                             class="form-control"
+                                             form-config="addItems.formConfig"
+                                             ng-model="item.lkUnit"
+                                             id="lkUnit{{$index}}">
+                                        <option value="">Select Unit</option>
+                                        <option ng-repeat="unit in addItems.lkUnitArray"
+                                                value="{{unit.primaryKey}}">{{unit.unitType}}- {{unit.unitDesc}}
+                                        </option>
+                                    </vselect>
+                                </td>
+                                <td>
+                                    <vinput vtype="text" name="quantity{{$index}}"
+                                            required=""
+                                            class="form-control"
+                                            form-config="addItems.formConfig"
+                                            ng-model="item.quantity"
+                                            id="quantity{{$index}}" placeholder="Enter Quantity">
+                                    </vinput>
+                                </td>
+                                <td>
+                                    <vinput vtype="text" name="rateOfPurchase{{$index}}"
+                                            class="form-control"
+                                            form-config="addItems.formConfig"
+                                            ng-model="item.rateOfPurchase"
+                                            id="rateOfPurchase{{$index}}" placeholder="Enter Rate Of Purchase">
+                                    </vinput>
+                                </td>
+                                <td>
+                                    <vinput vtype="text" name="itemMRP{{$index}}"
+                                            required=""
+                                            class="form-control"
+                                            form-config="addItems.formConfig"
+                                            ng-change="addItems.checkRateOfSellingAmount(item)"
+                                            ng-model="item.itemMRP"
+                                            id="itemMRP{{$index}}" placeholder="Enter MRP">
+                                    </vinput>
+                                </td>
+                                <td>
+                                    <vinput vtype="text" name="rateOfSelling{{$index}}"
+                                            required=""
+                                            class="form-control"
+                                            form-config="addItems.formConfig"
+                                            ng-change="addItems.checkRateOfSellingAmount(item)"
+                                            ng-model="item.rateOfSelling"
+                                            id="rateOfSelling{{$index}}" placeholder="Enter Rate Of Selling">
+                                    </vinput>
+                                </td>
+                                <td>
+                                    <vselect vtype="text" name="eoGst{{$index}}"
+                                             required=""
+                                             class="form-control"
+                                             form-config="addItems.formConfig"
+                                             ng-model="item.eoGst"
+                                             id="eoGst{{$index}}">
+                                        <option value="">Select GST</option>
+                                        <option ng-repeat="gst in addItems.gstSlabArrayData"
+                                                value="{{gst.primaryKey}}">{{gst.gstType}}
+                                        </option>
+                                    </vselect>
+                                </td>
+                                <!--<td>
+                                    <a type="button" class="form-control"
+                                       ng-click="userRegistration.removeaddItems(data.$$hashKey);"
+                                       id="delete{{$index}}">
+                                        <i class="fa fa-trash text-danger"></i>
+                                    </a>
+                                </td>-->
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </br>
+        <div class="row">
+            <div class="col-md-6">
+                <button class="btn btn-success btn-sm pull-right"
+                        style="margin-right: 2%"
+                        ng-click="addItems.formConfig.submit($event, addItemsForm)">Submit
+                </button>
+            </div>
+        </div>
+    </vform>
+</div>
+
